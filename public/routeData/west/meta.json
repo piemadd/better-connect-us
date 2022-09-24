@@ -1,0 +1,40 @@
+[
+  {
+    "routeName": "",
+    "stops": {
+      "all": {
+        "stations": [],
+        "time": {
+          "hours": 0,
+          "minutes": 0
+        }
+      },
+      "key": {
+        "stations": [],
+        "time": {
+          "hours": 0,
+          "minutes": 0
+        }
+      }
+    },
+    "trips": {
+      "preCovid": [
+        {
+          "start": "",
+          "stop": "",
+          "dailyRoundTrips": 0
+        }
+      ],
+      "postCovid": [
+        {
+          "start": "",
+          "stop": "",
+          "dailyRoundTrips": 0
+        }
+      ]
+    },
+    "fundingPerPassenger": 0,
+    "newPassengers": 0,
+    "infraCostPerPassenger": 0
+  }
+]

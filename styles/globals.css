@@ -1,14 +1,19 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
   padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 16px;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  color: #eee;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 * {
