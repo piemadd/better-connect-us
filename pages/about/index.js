@@ -56,7 +56,7 @@ export default function About() {
           For those of you more interested in the technical side of things, this
           site is built using Next.js (a React.js library) with data manually
           extracted from Amtrak's official Connects US site. The site is hosted
-          on Vercel. You should be able to view the source code <Link href={""}><a>here</a></Link>.
+          on Vercel. You should be able to view the source code <Link href={"https://github.com/piemadd/better-connect-us"}><a>here</a></Link>.
         </p>
       </main>
     </>
