@@ -5,3 +5,19 @@
 .main {
   max-width: 800px;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pieroButton {
+  padding: 16px;
+  margin: 0px;
+  border-radius: 12px;
+}
+
+.pieroButton:hover {
+  background-color: #ffffff44;
+}

@@ -6,6 +6,9 @@ import styles from "../../styles/Home.module.css";
 export default function About() {
   return (
     <>
+      <Head>
+        <title>About</title>
+      </Head>
       <h1 className={styles.centerText}>Better Amtrak Connects US Guide</h1>
 
       <main className={styles.main}>
@@ -56,7 +59,11 @@ export default function About() {
           For those of you more interested in the technical side of things, this
           site is built using Next.js (a React.js library) with data manually
           extracted from Amtrak's official Connects US site. The site is hosted
-          on Vercel. You should be able to view the source code <Link href={"https://github.com/piemadd/better-connect-us"}><a>here</a></Link>.
+          on Vercel. You should be able to view the source code{" "}
+          <Link href={"https://github.com/piemadd/better-connect-us"}>
+            <a>here</a>
+          </Link>
+          .
         </p>
       </main>
     </>
