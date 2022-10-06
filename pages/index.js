@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import Dynamic from "next/dynamic";
 
-const MapWithNoSSR = Dynamic(() => import("../../components/map"), {
+const MapWithNoSSR = Dynamic(() => import("../components/map"), {
   ssr: false,
 });
 
@@ -19,8 +19,8 @@ export default function Home() {
       <main className={styles.main}>
         <p>
           This is an unofficial, but improved, version of{" "}
-          <Link>
-            <a href={"https://www.amtrakconnectsus.com"}>
+          <Link href={"https://www.amtrakconnectsus.com"}>
+            <a>
               Amtrak's official Connects US Map
             </a>
           </Link>

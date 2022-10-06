@@ -5,10 +5,9 @@ import Link from "next/link";
 export default function Header() {
   return (
     <section className={styles.header}>
-      <PieroButton href={'/'} text={'Home'}/>
-      <PieroButton href={'/about'} text={'About'}/>
-      <PieroButton href={'/routes'} text={'Routes'}/>
-      <PieroButton href={'/resources'} text={'Resources'}/>
+      <PieroButton href={"/"} text={"Home"} />
+      <PieroButton href={"/routes"} text={"Routes"} />
+      <PieroButton href={"/about"} text={"About"} />
     </section>
   );
 }
