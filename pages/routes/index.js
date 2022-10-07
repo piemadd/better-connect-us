@@ -43,7 +43,7 @@ const Routes = () => {
               <section className={styles.routesList}>
                 {regions[region].map((route) => {
                   return (
-                    <p key={route.id}>
+                    <p key={route.routeID}>
                       <Link href={`/routes/${route.routeID}`}>
                         <a>
                           <b>{route.routeName}</b>
