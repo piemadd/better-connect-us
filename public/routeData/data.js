@@ -60,7 +60,7 @@ const routeData = {
     routeID: "capitolCorridor",
     region: "west",
     mileage: 168,
-    hosts: ["PCJPB", "UP"],
+    hosts: ["the PCJPB", "UP"],
     stations: ["Auburn", "Roseville", "Sacramento", "Oakland", "San Jose"],
     stops: {
       all: {
@@ -156,12 +156,12 @@ const routeData = {
       ],
       post: [
         {
-          stops: ["Bakersfield", "Merced", "Oakland"],
+          stops: ["Merced", "Oakland"],
           trips: 5,
           extensions: [],
         },
         {
-          stops: ["Bakersfield", "Merced", "Sacramento"],
+          stops: ["Merced", "Sacramento"],
           trips: 6,
           extensions: [],
         },
@@ -176,7 +176,7 @@ const routeData = {
     routeID: "centralCoast",
     region: "west",
     mileage: 203,
-    hosts: ["PCJPB", "UP"],
+    hosts: ["the PCJPB", "UP"],
     stations: ["San Jose", "Salinas", "San Luis Obispo"],
     stops: {
       all: {
