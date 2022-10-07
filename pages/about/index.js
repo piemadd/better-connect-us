@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../../components/header";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
@@ -10,6 +11,7 @@ export default function About() {
         <title>About</title>
       </Head>
       <h1 className={styles.centerText}>Better Amtrak Connects US Guide</h1>
+      <Header />
 
       <main className={styles.main}>
         <h2>About</h2>
