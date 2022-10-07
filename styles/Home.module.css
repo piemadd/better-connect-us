@@ -21,3 +21,13 @@
 .pieroButton:hover {
   background-color: #ffffff44;
 }
+
+.indentedSmaller {
+  margin-left: 16px;
+  padding-top: 0px;
+  font-size: 0.9em;
+}
+
+.routesList {
+  margin-left: 16px;
+}

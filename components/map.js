@@ -20,7 +20,7 @@ export default function Map() {
       maxBounds={bounds}
       tileSize={512}
       style={{ height: "50vh", width: "100%", zIndex: 0, overflow: "hidden" }}
-      zoomControl={false}
+      zoomControl={true}
       scrollWheelZoom={true}
     >
       <TileLayer
