@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "../../components/header";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
-import routeData from "../../public/routeData/data";
+import routeData from "../../public/routes";
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -23,7 +23,7 @@ const Routes = () => {
   return (
     <>
       <Head>
-        <title>Routes</title>
+        <title>Routes | Better Connects US</title>
       </Head>
       <h1 className={styles.centerText}>Better Amtrak Connects US Guide</h1>
       <Header />
@@ -33,7 +33,7 @@ const Routes = () => {
           Below is a list of the various Connects US routes split up by region.
           To view more information about a route, click on the accompanying
           link. Each page will go more in depth about each route including
-          stops, timings, and frequencies (both planned and historical).
+          stops, timings, and frequencies (both planned and current).
         </p>
 
         {Object.keys(regions).map((region) => {

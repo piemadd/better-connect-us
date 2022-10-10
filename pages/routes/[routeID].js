@@ -1,4 +1,4 @@
-import routeData from "../../public/routeData/data";
+import routeData from "../../public/routes";
 import Dynamic from "next/dynamic";
 import Head from "next/head";
 import Header from "../../components/header";
@@ -46,28 +46,34 @@ const Route = (params) => {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>{data.routeName} | Better Connects US</title>
       </Head>
-      <h1 className={styles.centerText}>Better Amtrak Connects US Guide</h1>
+      <h1 className={styles.centerText}>Better Connects US</h1>
       <Header />
 
       <main className={styles.main}>
         <h2>{data.routeName}</h2>
         <p>
-          The {data.routeName} train is {data.trips.pee.length > 0 ? "an existing" : "a planned"}{" "}
-          route running {data.mileage} miles from {data.stops.all.stations[0]}{" "}
-          to {data.stops.all.stations.slice(-1)}, taking{" "}
+          The {data.routeName} train is{" "}
+          {data.trips.pee.length > 0 ? "an existing" : "a planned"} route
+          running {data.mileage} miles from {data.stops.all.stations[0]} to{" "}
+          {data.stops.all.stations.slice(-1)}, taking{" "}
           {data.stops.all.time.hours} hours and {data.stops.all.time.minutes}{" "}
           minutes over tracks owned by {data.hosts.slice(0, -1).join(", ")}
-          {data.hosts.length > 2 ? "," : ""}{data.hosts.length > 1 ? ' and' : ''} {data.hosts.slice(-1)}, with
-          the primary section of the route runs between{" "}
-          {data.stops.key.stations[0]} and {data.stops.key.stations.slice(-1)}, taking .
-          Additionally, an initial investment of{" "}
+          {data.hosts.length > 2 ? "," : ""}
+          {data.hosts.length > 1 ? " and" : ""} {data.hosts.slice(-1)}, with the
+          primary section of the route running between {data.stops.key.stations[0]}{" "}
+          and {data.stops.key.stations.slice(-1)}, taking{" "}
+          {data.stops.key.time.hours} hours and {data.stops.key.time.minutes}{" "}
+          minutes to complete. Additionally, an initial investment of{" "}
           {figs.infrastructure[data.infraCostPerPassenger]} per passenger and a
           subsidy of {figs.money[data.fundingPerPassenger]} per passenger is
           projected to lead to {figs.passengers[data.newPassengers]} regular
           customers for this route.
         </p>
+
+        <h3>Map of Route:</h3>
+        <MapWithNoSSR />
 
         <h3>Pre-pandemic Schedule:</h3>
         {data.trips.pee.length > 0 ? (
@@ -244,6 +250,17 @@ const Route = (params) => {
           <p>This route did not exist before the pandemic.</p>
         )}
 
+        <h3>
+          The Route:
+        </h3>
+        <p>Starting in {data.stops.all.stations[0]}, the train makes the following stops:</p>
+        <ul>
+          {data.stops.all.stations.map((station) => {
+            return <li>{station}</li>;
+          })}
+        </ul>
+
+
         <h3>Stats for Nerds:</h3>
         <ul>
           <li>Route Length: {data.mileage} mi.</li>
@@ -263,8 +280,6 @@ const Route = (params) => {
           </li>
         </ul>
         <div>{JSON.stringify(data, null, 2)}</div>
-        <h2>Map of Route:</h2>
-        <MapWithNoSSR />
       </main>
     </>
   );
