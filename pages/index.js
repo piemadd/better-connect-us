@@ -4,12 +4,24 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import Dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 const MapWithNoSSR = Dynamic(() => import("../components/map"), {
   ssr: false,
 });
 
 export default function Home() {
+  const [features, setFeatures] = useState([]);
+
+  useEffect(() => {
+    fetch('./shapes.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.features)
+        setFeatures(data.features);
+      });
+  }, []);
+
   return (
     <>
     <Head>
@@ -34,7 +46,7 @@ export default function Home() {
         </p>
 
         <h2>Map</h2>
-        <MapWithNoSSR />
+        <MapWithNoSSR features={features} />
       </main>
     </>
   );
