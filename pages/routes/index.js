@@ -51,7 +51,11 @@ const Routes = () => {
                         </a>
                       </Link>
                       <i className={styles.indentedSmaller}>
-                        {route.stops.all.stations.join(", ")}
+                        {route.stops.all.stations
+                          .filter((station) => {
+                            return route.mainStations.includes(station);
+                          })
+                          .join(" - ")}
                       </i>
                     </p>
                   );

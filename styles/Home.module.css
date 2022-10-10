@@ -31,3 +31,8 @@
 .routesList {
   margin-left: 16px;
 }
+
+.mainStation {
+  font-weight: 400;
+  text-decoration: underline;
+}

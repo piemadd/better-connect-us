@@ -60,7 +60,13 @@ const routeData = {
     routeID: "capitolCorridor",
     region: "west",
     mileage: 168,
-    mainStations: [""],
+    mainStations: [
+      "Auburn, CA",
+      "Roseville, CA",
+      "Sacramento, CA",
+      "Oakland, CA",
+      "San Jose, CA",
+    ],
     hosts: ["the PCJPB", "UP"],
     stops: {
       all: {
@@ -184,6 +190,14 @@ const routeData = {
     routeID: "sanJoaquins",
     region: "west",
     mileage: 114,
+    mainStations: [
+      "Bakersfield, CA",
+      "Fresno, CA",
+      "Merced, CA",
+      "Stockton, CA",
+      "Sacramento, CA",
+      "Oakland, CA",
+    ],
     hosts: ["BNSF", "UP"],
     stops: {
       all: {
@@ -324,6 +338,7 @@ const routeData = {
     routeID: "centralCoast",
     region: "west",
     mileage: 203,
+    mainStations: ["San Jose, CA", "Salinas, CA", "San Luis Obispo, CA"],
     hosts: ["the PCJPB", "UP"],
     stops: {
       all: {
@@ -387,6 +402,12 @@ const routeData = {
     routeID: "pacificSurfliner",
     region: "west",
     mileage: 359,
+    mainStations: [
+      "San Diego, CA",
+      "Los Angeles, CA",
+      "Santa Barbara, CA",
+      "San Luis Obispo, CA",
+    ],
     hosts: ["BNSF", "NCTD", "SCRRA", "UP"],
     stops: {
       all: {
@@ -555,6 +576,7 @@ const routeData = {
     routeID: "lasVegas",
     region: "west",
     mileage: 334,
+    mainStations: ["Las Vegas, NV", "Riverside, CA", "Los Angeles, CA"],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -621,6 +643,7 @@ const routeData = {
     routeID: "coachellaValley",
     region: "west",
     mileage: 140,
+    mainStations: ["Los Angeles, CA", "Indio, CA"],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -687,6 +710,13 @@ const routeData = {
     routeID: "laPhoenixTuscon",
     region: "west",
     mileage: 559,
+    mainStations: [
+      "Los Angeles, CA",
+      "Riverside, CA",
+      "Indio, CA",
+      "Phoenix, AZ",
+      "Tucson, AZ",
+    ],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -777,6 +807,10 @@ const routeData = {
     routeID: "phoenixTuscon",
     region: "west",
     mileage: 154,
+    mainStations: [
+      "Phoenix, AZ",
+      "Tucson, AZ",
+    ],
     hosts: ["UP"],
     stops: {
       all: {
@@ -841,6 +875,13 @@ const routeData = {
     routeID: "cascades",
     region: "west",
     mileage: 461,
+    mainStations: [
+      "Vancouver, BC",
+      "Seattle, WA",
+      "Tacoma, WA",
+      "Portland, OR",
+      "Eugene, OR",
+    ],
     hosts: ["BNSF", "UP", "Sound Transit"],
     stops: {
       all: {

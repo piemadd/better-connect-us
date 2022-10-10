@@ -4,6 +4,8 @@ import Head from "next/head";
 import Header from "../../components/header";
 import styles from "../../styles/Home.module.css";
 
+import { JSONToHTMLTable } from '@kevincobain2000/json-to-html-table'
+
 const figs = {
   money: ["up to $25", "$25 to $50", "over $50"],
   passengers: [
@@ -62,10 +64,11 @@ const Route = (params) => {
           minutes over tracks owned by {data.hosts.slice(0, -1).join(", ")}
           {data.hosts.length > 2 ? "," : ""}
           {data.hosts.length > 1 ? " and" : ""} {data.hosts.slice(-1)}, with the
-          primary section of the route running between {data.stops.key.stations[0]}{" "}
-          and {data.stops.key.stations.slice(-1)}, taking{" "}
-          {data.stops.key.time.hours} hours and {data.stops.key.time.minutes}{" "}
-          minutes to complete. Additionally, an initial investment of{" "}
+          primary section of the route running between{" "}
+          {data.stops.key.stations[0]} and {data.stops.key.stations.slice(-1)},
+          taking {data.stops.key.time.hours} hours and{" "}
+          {data.stops.key.time.minutes} minutes to complete. Additionally, an
+          initial investment of{" "}
           {figs.infrastructure[data.infraCostPerPassenger]} per passenger and a
           subsidy of {figs.money[data.fundingPerPassenger]} per passenger is
           projected to lead to {figs.passengers[data.newPassengers]} regular
@@ -74,6 +77,76 @@ const Route = (params) => {
 
         <h3>Map of Route:</h3>
         <MapWithNoSSR />
+
+        <h3>The Route:</h3>
+        <p>
+          Starting in {data.stops.all.stations[0]}, the train makes the
+          following stops:
+        </p>
+        <ul>
+          {data.stops.all.stations.map((station) => {
+            console.log(data.mainStations.includes(station));
+            return data.mainStations.includes(station) ? (
+              <li>
+                <b>{station}</b>
+              </li>
+            ) : (
+              <li>
+                <i>{station}</i>
+              </li>
+            );
+          })}
+        </ul>
+        {data.stops.branches && data.stops.branches.length > 1 ? (
+          <>
+            <p>Additionally, the following branches exist for this route:</p>
+            <ul>
+              {data.stops.branches.map((branch) => {
+                return (
+                  <>
+                    <li>
+                      <b>{branch[0] - branch.slice(-1)}</b>
+                      <ul>
+                        {branch.map((station) => {
+                          return data.mainStations.includes(station) ? (
+                            <li>
+                              <b>{station}</b>
+                            </li>
+                          ) : (
+                            <li>
+                              <i>{station}</i>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  </>
+                );
+              })}
+            </ul>
+          </>
+        ) : null}
+        {data.stops.branches && data.stops.branches.length == 1 ? (
+          <>
+            <p>
+              Additionally, a branch from {data.stops.branches[0][0]} to{" "}
+              {data.stops.branches[0].slice(-1)} exists for this route:
+            </p>
+            <ul>
+              {data.stops.branches[0].map((station) => {
+                return data.mainStations.includes(station) ? (
+                  <li>
+                    <b>{station}</b>
+                  </li>
+                ) : (
+                  <li>
+                    <i>{station}</i>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ) : null}
 
         <h3>Pre-pandemic Schedule:</h3>
         {data.trips.pee.length > 0 ? (
@@ -250,17 +323,6 @@ const Route = (params) => {
           <p>This route did not exist before the pandemic.</p>
         )}
 
-        <h3>
-          The Route:
-        </h3>
-        <p>Starting in {data.stops.all.stations[0]}, the train makes the following stops:</p>
-        <ul>
-          {data.stops.all.stations.map((station) => {
-            return <li>{station}</li>;
-          })}
-        </ul>
-
-
         <h3>Stats for Nerds:</h3>
         <ul>
           <li>Route Length: {data.mileage} mi.</li>
@@ -279,7 +341,11 @@ const Route = (params) => {
             {data.stops.key.time.minutes.toString().padStart(2, "0")}
           </li>
         </ul>
-        <div>{JSON.stringify(data, null, 2)}</div>
+
+        <h3>Raw Data:</h3>
+        <div>
+          <JSONToHTMLTable data={data} />
+        </div>
       </main>
     </>
   );
