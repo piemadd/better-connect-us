@@ -4,7 +4,7 @@ import Head from "next/head";
 import Header from "../../components/header";
 import styles from "../../styles/Home.module.css";
 
-import { JSONToHTMLTable } from '@kevincobain2000/json-to-html-table'
+import { JSONToHTMLTable } from "@kevincobain2000/json-to-html-table";
 
 const figs = {
   money: ["up to $25", "$25 to $50", "over $50"],
@@ -344,7 +344,10 @@ const Route = (params) => {
 
         <h3>Raw Data:</h3>
         <div>
-          <JSONToHTMLTable data={data} />
+          <details>
+            <summary>Expand to see Raw Data:</summary>
+            <JSONToHTMLTable data={data} />
+          </details>
         </div>
       </main>
     </>
