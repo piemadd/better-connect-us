@@ -87,11 +87,11 @@ const Route = (params) => {
           {data.stops.all.stations.map((station) => {
             console.log(data.mainStations.includes(station));
             return data.mainStations.includes(station) ? (
-              <li>
+              <li key={`route-stops-${station}`}>
                 <b>{station}</b>
               </li>
             ) : (
-              <li>
+              <li key={`route-stops-${station}`}>
                 <i>{station}</i>
               </li>
             );
@@ -160,7 +160,7 @@ const Route = (params) => {
                   {data.trips.pee.map((trip) => {
                     //more than one distinct segment (see san joaquins)
                     return (
-                      <li>
+                      <li key={`trips-pee-${trip.stops[0]}-${trip.stops.slice(-1)}`}>
                         From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
                         {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
                         {trip.extensions.length > 0 ? (
@@ -168,7 +168,7 @@ const Route = (params) => {
                             {trip.extensions.map((extension) => {
                               //any extensions exist for this segment. i dont think this is used, but it is good to cover an edge case
                               return (
-                                <li>
+                                <li key={`extension-pee-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
                                   {extension.trips} train
                                   {extension.trips.length > 1 ? "s" : ""}{" "}
                                   extended to {extension.stops.slice(-1)} from{" "}
@@ -217,7 +217,7 @@ const Route = (params) => {
                     <ul>
                       {data.trips.pee[0].extensions.map((extension) => {
                         return (
-                          <li>
+                          <li key={`extension-pee-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
                             {extension.trips} train
                             {extension.trips > 1 ? "s" : ""} extended to{" "}
                             {extension.stops.slice(-1)} from{" "}
@@ -248,7 +248,7 @@ const Route = (params) => {
                   {data.trips.post.map((trip) => {
                     //more than one distinct segment (see san joaquins)
                     return (
-                      <li>
+                      <li key={`trip-post-${trip.stops[0]}-${trip.stops.slice(-1)}`}>
                         From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
                         {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
                         {trip.extensions.length > 0 ? (
@@ -256,7 +256,7 @@ const Route = (params) => {
                             {trip.extensions.map((extension) => {
                               //any extensions exist for this segment. i dont think this is used, but it is good to cover an edge case
                               return (
-                                <li>
+                                <li key={`extension-post-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
                                   {extension.trips} train
                                   {extension.trips.length > 1 ? "s" : ""} will
                                   extend to {extension.stops.slice(-1)} from{" "}
@@ -305,7 +305,7 @@ const Route = (params) => {
                     <ul>
                       {data.trips.post[0].extensions.map((extension) => {
                         return (
-                          <li>
+                          <li key={`extension-post-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
                             {extension.trips} train
                             {extension.trips > 1 ? "s" : ""} to extend from{" "}
                             {extension.stops[0]} to {extension.stops.slice(-1)}.

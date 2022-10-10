@@ -24,13 +24,13 @@ export default function Home() {
           This is an unofficial, but improved, version of{" "}
           <Link href={"https://www.amtrakconnectsus.com"}>
             <a>
-              Amtrak's official Connects US Map
+              Amtrak&apos;s official Connects US Map
             </a>
           </Link>
           . It is intended to provide more information while being easier to
-          use. You can read more about this side project by clicking the "About"
+          use. You can read more about this side project by clicking the &quot;About&quot;
           button above, scroll around the map below, or view a list of routes by
-          clicking the "Routes" tab above.
+          clicking the &quot;Routes&quot; tab above.
         </p>
 
         <h2>Map</h2>
