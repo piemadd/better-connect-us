@@ -360,7 +360,7 @@ const Route = (params) => {
         <div>
           <details>
             <summary>Expand to see Raw Data:</summary>
-            <JSONToHTMLTable data={data} />
+            {JSON.stringify(data, null, 2)}
           </details>
         </div>
       </main>
