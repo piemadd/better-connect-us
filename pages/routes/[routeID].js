@@ -5,8 +5,6 @@ import Header from "../../components/header";
 import styles from "../../styles/Home.module.css";
 import { useEffect, useState } from "react";
 
-import { JSONToHTMLTable } from "@kevincobain2000/json-to-html-table";
-
 const figs = {
   money: ["up to $25", "$25 to $50", "over $50"],
   passengers: [
