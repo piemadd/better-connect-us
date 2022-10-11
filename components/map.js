@@ -17,7 +17,6 @@ let northEast = L.latLng(62.387941, -56.355762);
 let bounds = L.latLngBounds(southWest, northEast);
 
 function Bounds({ viewBounds }) {
-  console.log(viewBounds);
   const map = useMap();
   map.fitBounds(viewBounds);
   return null;
@@ -39,8 +38,6 @@ export default function Map(data) {
   } else {
     overallBounds = [[19.41558, -132.807311], [62.387941, -56.355762]];
   }
-
-  console.log(overallBounds);
 
   const viewBounds = new L.LatLngBounds(overallBounds);
 

@@ -100,7 +100,6 @@ const Route = (params) => {
         </p>
         <ul>
           {data.stops.all.stations.map((station) => {
-            console.log(data.mainStations.includes(station));
             return data.mainStations.includes(station) ? (
               <li key={`route-stops-${station}`}>
                 <b>{station}</b>
