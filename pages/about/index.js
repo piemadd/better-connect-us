@@ -8,7 +8,30 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About</title>
+        <title>About | Better Connects US</title>
+        <meta
+          name="description"
+          content="An unofficial but better site showing off Amtrak's Connects US plan."
+        />
+
+        <meta property="og:url" content="https://amtrak.site/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="About | Better Connects US" />
+        <meta
+          property="og:description"
+          content="An unofficial but better site showing off Amtrak's Connects US plan."
+        />
+        <meta property="og:image" content="https://amtrak.site/cover.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="amtrak.site" />
+        <meta property="twitter:url" content="https://amtrak.site/" />
+        <meta name="twitter:title" content="About | Better Connects US" />
+        <meta
+          name="twitter:description"
+          content="An unofficial but better site showing off Amtrak's Connects US plan."
+        />
+        <meta name="twitter:image" content="https://amtrak.site/cover.png" />
       </Head>
       <h1 className={styles.centerText}>Better Amtrak Connects US Guide</h1>
       <Header />

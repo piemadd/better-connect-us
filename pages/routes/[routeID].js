@@ -47,12 +47,12 @@ const Route = (params) => {
   const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    fetch('../shapes.json')
-      .then(response => response.json())
-      .then(mapData => {
+    fetch("../shapes.json")
+      .then((response) => response.json())
+      .then((mapData) => {
         const cleanedFeatures = mapData.features.filter((feature) => {
-          return data.segments.includes(feature.properties.name)
-        })
+          return data.segments.includes(feature.properties.name);
+        });
 
         setFeatures(cleanedFeatures);
       });
@@ -62,6 +62,47 @@ const Route = (params) => {
     <>
       <Head>
         <title>{data.routeName} | Better Connects US</title>
+        <meta
+          name="description"
+          content={`A look at Amtrak's ${
+            data.routeName
+          } route in their Connects US plan, which runs from ${
+            data.stops.all.stations[0]
+          } to ${data.stops.all.stations.slice(-1)}.`}
+        />
+
+        <meta property="og:url" content="https://amtrak.site/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${data.routeName} | Better Connects US`}
+        />
+        <meta
+          property="og:description"
+          content={`A look at Amtrak's ${
+            data.routeName
+          } route in their Connects US plan, which runs from ${
+            data.stops.all.stations[0]
+          } to ${data.stops.all.stations.slice(-1)}.`}
+        />
+        <meta property="og:image" content="https://amtrak.site/cover.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="amtrak.site" />
+        <meta property="twitter:url" content="https://amtrak.site/" />
+        <meta
+          name="twitter:title"
+          content={`${data.routeName} | Better Connects US`}
+        />
+        <meta
+          name="twitter:description"
+          content={`A look at Amtrak's ${
+            data.routeName
+          } route in their Connects US plan, which runs from ${
+            data.stops.all.stations[0]
+          } to ${data.stops.all.stations.slice(-1)}.`}
+        />
+        <meta name="twitter:image" content="https://amtrak.site/cover.png" />
       </Head>
       <h1 className={styles.centerText}>Better Connects US</h1>
       <Header />
@@ -89,7 +130,7 @@ const Route = (params) => {
         </p>
 
         <h3>Map of Route:</h3>
-        <MapWithNoSSR features={features}/>
+        <MapWithNoSSR features={features} />
 
         <h3>The Route:</h3>
         <p>
@@ -172,7 +213,11 @@ const Route = (params) => {
                   {data.trips.pee.map((trip) => {
                     //more than one distinct segment (see san joaquins)
                     return (
-                      <li key={`trips-pee-${trip.stops[0]}-${trip.stops.slice(-1)}`}>
+                      <li
+                        key={`trips-pee-${trip.stops[0]}-${trip.stops.slice(
+                          -1
+                        )}`}
+                      >
                         From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
                         {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
                         {trip.extensions.length > 0 ? (
@@ -180,7 +225,11 @@ const Route = (params) => {
                             {trip.extensions.map((extension) => {
                               //any extensions exist for this segment. i dont think this is used, but it is good to cover an edge case
                               return (
-                                <li key={`extension-pee-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
+                                <li
+                                  key={`extension-pee-${
+                                    extension.stops[0]
+                                  }-${extension.stops.slice(-1)}`}
+                                >
                                   {extension.trips} train
                                   {extension.trips.length > 1 ? "s" : ""}{" "}
                                   extended to {extension.stops.slice(-1)} from{" "}
@@ -229,7 +278,11 @@ const Route = (params) => {
                     <ul>
                       {data.trips.pee[0].extensions.map((extension) => {
                         return (
-                          <li key={`extension-pee-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
+                          <li
+                            key={`extension-pee-${
+                              extension.stops[0]
+                            }-${extension.stops.slice(-1)}`}
+                          >
                             {extension.trips} train
                             {extension.trips > 1 ? "s" : ""} extended to{" "}
                             {extension.stops.slice(-1)} from{" "}
@@ -260,7 +313,11 @@ const Route = (params) => {
                   {data.trips.post.map((trip) => {
                     //more than one distinct segment (see san joaquins)
                     return (
-                      <li key={`trip-post-${trip.stops[0]}-${trip.stops.slice(-1)}`}>
+                      <li
+                        key={`trip-post-${trip.stops[0]}-${trip.stops.slice(
+                          -1
+                        )}`}
+                      >
                         From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
                         {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
                         {trip.extensions.length > 0 ? (
@@ -268,7 +325,11 @@ const Route = (params) => {
                             {trip.extensions.map((extension) => {
                               //any extensions exist for this segment. i dont think this is used, but it is good to cover an edge case
                               return (
-                                <li key={`extension-post-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
+                                <li
+                                  key={`extension-post-${
+                                    extension.stops[0]
+                                  }-${extension.stops.slice(-1)}`}
+                                >
                                   {extension.trips} train
                                   {extension.trips.length > 1 ? "s" : ""} will
                                   extend to {extension.stops.slice(-1)} from{" "}
@@ -317,7 +378,11 @@ const Route = (params) => {
                     <ul>
                       {data.trips.post[0].extensions.map((extension) => {
                         return (
-                          <li key={`extension-post-${extension.stops[0]}-${extension.stops.slice(-1)}`}>
+                          <li
+                            key={`extension-post-${
+                              extension.stops[0]
+                            }-${extension.stops.slice(-1)}`}
+                          >
                             {extension.trips} train
                             {extension.trips > 1 ? "s" : ""} to extend from{" "}
                             {extension.stops[0]} to {extension.stops.slice(-1)}.
