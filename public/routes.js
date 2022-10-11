@@ -722,8 +722,7 @@ const routeData = {
       all: {
         stations: [
           "Los Angeles, CA",
-          "Pomona, CA",
-          "Ontario, CA",
+          "Fullerton, CA",
           "Riverside, CA",
           "Loma Linda, CA",
           "Banning, CA",
@@ -749,8 +748,7 @@ const routeData = {
       key: {
         stations: [
           "Los Angeles, CA",
-          "Pomona, CA",
-          "Ontario, CA",
+          "Fullerton, CA",
           "Riverside, CA",
           "Loma Linda, CA",
           "Banning, CA",
@@ -774,8 +772,7 @@ const routeData = {
         {
           stops: [
             "Los Angeles, CA",
-            "Pomona, CA",
-            "Ontario, CA",
+            "Fullerton, CA",
             "Riverside, CA",
             "Loma Linda, CA",
             "Banning, CA",

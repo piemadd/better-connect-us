@@ -49,7 +49,7 @@ export default function Map(data) {
               return (
                 <Polyline
                   key={`other-line-${i}`}
-                  pathOptions={{ color: "red" }}
+                  pathOptions={{ color: "#517dff" }}
                   positions={line}
                 />
               );
