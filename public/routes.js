@@ -67,6 +67,12 @@ const routeData = {
       "Oakland, CA",
       "San Jose, CA",
     ],
+    segments: [
+      "sacramento_to_auburn",
+      "martinez_to_sacramento",
+      "oakland_to_martinez",
+      "oakland_to_san_jose",
+    ],
     hosts: ["the PCJPB", "UP"],
     stops: {
       all: {
@@ -197,6 +203,12 @@ const routeData = {
       "Stockton, CA",
       "Sacramento, CA",
       "Oakland, CA",
+    ],
+    segments: [
+      "stockton_to_merced",
+      "stockton_to_sacramento",
+      "martinez_to_stockton",
+      "oakland_to_martinez",
     ],
     hosts: ["BNSF", "UP"],
     stops: {
@@ -339,6 +351,7 @@ const routeData = {
     region: "west",
     mileage: 203,
     mainStations: ["San Jose, CA", "Salinas, CA", "San Luis Obispo, CA"],
+    segments: [],
     hosts: ["the PCJPB", "UP"],
     stops: {
       all: {
@@ -408,6 +421,7 @@ const routeData = {
       "Santa Barbara, CA",
       "San Luis Obispo, CA",
     ],
+    segments: [],
     hosts: ["BNSF", "NCTD", "SCRRA", "UP"],
     stops: {
       all: {
@@ -577,6 +591,7 @@ const routeData = {
     region: "west",
     mileage: 334,
     mainStations: ["Las Vegas, NV", "Riverside, CA", "Los Angeles, CA"],
+    segments: [],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -644,6 +659,7 @@ const routeData = {
     region: "west",
     mileage: 140,
     mainStations: ["Los Angeles, CA", "Indio, CA"],
+    segments: [],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -717,6 +733,7 @@ const routeData = {
       "Phoenix, AZ",
       "Tucson, AZ",
     ],
+    segments: [],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -804,10 +821,8 @@ const routeData = {
     routeID: "phoenixTuscon",
     region: "west",
     mileage: 154,
-    mainStations: [
-      "Phoenix, AZ",
-      "Tucson, AZ",
-    ],
+    mainStations: ["Phoenix, AZ", "Tucson, AZ"],
+    segments: [],
     hosts: ["UP"],
     stops: {
       all: {
@@ -879,6 +894,7 @@ const routeData = {
       "Portland, OR",
       "Eugene, OR",
     ],
+    segments: [],
     hosts: ["BNSF", "UP", "Sound Transit"],
     stops: {
       all: {

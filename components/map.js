@@ -16,9 +16,34 @@ let southWest = L.latLng(19.41558, -132.807311);
 let northEast = L.latLng(62.387941, -56.355762);
 let bounds = L.latLngBounds(southWest, northEast);
 
+function Bounds({ viewBounds }) {
+  console.log(viewBounds);
+  const map = useMap();
+  map.fitBounds(viewBounds);
+  return null;
+}
+
 export default function Map(data) {
   const features = data.features ? data.features : [];
-  //console.log(features);
+
+  let overallBounds = [];
+
+  if (features.length > 0) {
+    features.forEach((feature) => {
+      feature.geometry.coordinates.forEach((line) => {
+        line.forEach((point) => {
+          overallBounds.push([point[1], point[0]]);
+        });
+      });
+    });
+  } else {
+    overallBounds = [[19.41558, -132.807311], [62.387941, -56.355762]];
+  }
+
+  console.log(overallBounds);
+
+  const viewBounds = new L.LatLngBounds(overallBounds);
+
   return (
     <MapContainer
       center={[40.0849352, -99.2924727]}
@@ -55,6 +80,7 @@ export default function Map(data) {
               );
             })
         : null}
+      <Bounds viewBounds={viewBounds} />
     </MapContainer>
   );
 }

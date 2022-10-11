@@ -17,7 +17,6 @@ export default function Home() {
     fetch('./shapes.json')
       .then(response => response.json())
       .then(data => {
-        console.log(data.features)
         setFeatures(data.features);
       });
   }, []);

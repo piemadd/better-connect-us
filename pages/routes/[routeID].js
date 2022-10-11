@@ -3,6 +3,7 @@ import Dynamic from "next/dynamic";
 import Head from "next/head";
 import Header from "../../components/header";
 import styles from "../../styles/Home.module.css";
+import { useEffect, useState } from "react";
 
 import { JSONToHTMLTable } from "@kevincobain2000/json-to-html-table";
 
@@ -45,6 +46,20 @@ export async function getStaticProps({ params }) {
 const Route = (params) => {
   let { data } = params;
 
+  const [features, setFeatures] = useState([]);
+
+  useEffect(() => {
+    fetch('../shapes.json')
+      .then(response => response.json())
+      .then(mapData => {
+        const cleanedFeatures = mapData.features.filter((feature) => {
+          return data.segments.includes(feature.properties.name)
+        })
+
+        setFeatures(cleanedFeatures);
+      });
+  }, []);
+
   return (
     <>
       <Head>
@@ -76,7 +91,7 @@ const Route = (params) => {
         </p>
 
         <h3>Map of Route:</h3>
-        <MapWithNoSSR />
+        <MapWithNoSSR features={features}/>
 
         <h3>The Route:</h3>
         <p>
