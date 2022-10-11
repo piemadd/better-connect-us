@@ -351,7 +351,7 @@ const routeData = {
     region: "west",
     mileage: 203,
     mainStations: ["San Jose, CA", "Salinas, CA", "San Luis Obispo, CA"],
-    segments: [],
+    segments: ["san_luis_obispo_to_san_jose"],
     hosts: ["the PCJPB", "UP"],
     stops: {
       all: {
@@ -421,7 +421,11 @@ const routeData = {
       "Santa Barbara, CA",
       "San Luis Obispo, CA",
     ],
-    segments: [],
+    segments: [
+      "la_to_san_luis_obispo",
+      "la_to_fullerton",
+      "fullerton_to_san_diego",
+    ],
     hosts: ["BNSF", "NCTD", "SCRRA", "UP"],
     stops: {
       all: {
@@ -591,7 +595,12 @@ const routeData = {
     region: "west",
     mileage: 334,
     mainStations: ["Las Vegas, NV", "Riverside, CA", "Los Angeles, CA"],
-    segments: [],
+    segments: [
+      "la_to_fullerton",
+      "fullerton_to_riverside",
+      "riverside_to_barstow",
+      "barstow_to_las_vegas",
+    ],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -659,7 +668,11 @@ const routeData = {
     region: "west",
     mileage: 140,
     mainStations: ["Los Angeles, CA", "Indio, CA"],
-    segments: [],
+    segments: [
+      "la_to_fullerton",
+      "fullerton_to_riverside",
+      "riverside_to_indio",
+    ],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -733,7 +746,13 @@ const routeData = {
       "Phoenix, AZ",
       "Tucson, AZ",
     ],
-    segments: [],
+    segments: [
+      "la_to_fullerton",
+      "fullerton_to_riverside",
+      "riverside_to_indio",
+      "indio_to_buckeye",
+      "buckeye_to_tucson",
+    ],
     hosts: ["BNSF", "SCRRA", "UP"],
     stops: {
       all: {
@@ -822,7 +841,7 @@ const routeData = {
     region: "west",
     mileage: 154,
     mainStations: ["Phoenix, AZ", "Tucson, AZ"],
-    segments: [],
+    segments: ["buckeye_to_tucson"],
     hosts: ["UP"],
     stops: {
       all: {
@@ -894,7 +913,7 @@ const routeData = {
       "Portland, OR",
       "Eugene, OR",
     ],
-    segments: [],
+    segments: ["eugene_to_vancouver"],
     hosts: ["BNSF", "UP", "Sound Transit"],
     stops: {
       all: {

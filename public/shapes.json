@@ -917,7 +917,7 @@
     },
     {
       "type": "Feature",
-      "properties": { "name": "buckeye_to_tuscon" },
+      "properties": { "name": "buckeye_to_tucson" },
       "geometry": {
         "type": "MultiLineString",
         "coordinates": [
