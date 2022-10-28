@@ -126,7 +126,7 @@ const Route = (params) => {
           {figs.infrastructure[data.infraCostPerPassenger]} per passenger and a
           subsidy of {figs.money[data.fundingPerPassenger]} per passenger is
           projected to lead to {figs.passengers[data.newPassengers]} regular
-          customers for this route.
+          users of this route.
         </p>
 
         <h3>Map of Route:</h3>

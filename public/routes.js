@@ -1046,6 +1046,151 @@ const routeData = {
     newPassengers: 3,
     infraCostPerPassenger: 0,
   },
+  texasTriangleSanAntonioDallas: {
+    routeName: "Texas Triangle (San Antonio - Dallas/Fort Worth)",
+    routeID: "texasTriangleSanAntonioDallas",
+    region: "central",
+    mileage: 310,
+    mainStations: [
+      "San Antonio, TX",
+      "Austin, TX",
+      "Fort Worth, TX",
+      "Dallas, TX",
+    ],
+    segments: [""],
+    hosts: ["BNSF", "TRE", "UP"],
+    stops: {
+      all: {
+        stations: [
+          "San Antonio, TX",
+          "New Braunfels, TX",
+          "San Marcos, TX",
+          "Austin, TX",
+          "Taylor/Georgetown, TX",
+          "Temple, TX",
+          "McGregor, TX",
+          "Cleburne, TX",
+          "Fort Worth, TX",
+          "DFW Airport, TX",
+          "Dallas, TX",
+        ],
+        time: {
+          hours: 7,
+          minutes: 2,
+        },
+      },
+      key: {
+        stations: [
+          "San Antonio, TX",
+          "New Braunfels, TX",
+          "San Marcos, TX",
+          "Austin, TX",
+          "Taylor/Georgetown, TX",
+          "Temple, TX",
+          "McGregor, TX",
+          "Cleburne, TX",
+          "Fort Worth, TX",
+        ],
+        time: {
+          hours: 6,
+          minutes: 0,
+        },
+      },
+    },
+    trips: {
+      pee: [],
+      post: [
+        {
+          stops: [
+            "San Antonio, TX",
+            "New Braunfels, TX",
+            "San Marcos, TX",
+            "Austin, TX",
+            "Taylor/Georgetown, TX",
+            "Temple, TX",
+            "McGregor, TX",
+            "Cleburne, TX",
+            "Fort Worth, TX",
+            "DFW Airport, TX",
+            "Dallas, TX",
+          ],
+          trips: 2,
+          extensions: [],
+        },
+      ],
+    },
+    fundingPerPassenger: 0,
+    newPassengers: 3,
+    infraCostPerPassenger: 0,
+  },
+  texasTriangleHoustonDallas: {
+    routeName: "Texas Triangle (Houston - Dallas/Fort Worth)",
+    routeID: "texasTriangleHoustonDallas",
+    region: "central",
+    mileage: 297,
+    mainStations: [
+      "Houston, TX",
+      "College Station, TX",
+      "Dallas, TX",
+      "Fort Worth, TX",
+    ],
+    segments: [""],
+    hosts: ["TRE", "UP"],
+    stops: {
+      all: {
+        stations: [
+          "Houston, TX",
+          "Navasota, TX",
+          "College Station, TX",
+          "Hearne, TX",
+          "Coriscana, TX",
+          "Dallas, TX",
+          "DFW Airport, TX",
+          "Fort Worth, TX",
+        ],
+        time: {
+          hours: 5,
+          minutes: 33,
+        },
+      },
+      key: {
+        stations: [
+          "Houston, TX",
+          "Navasota, TX",
+          "College Station, TX",
+          "Hearne, TX",
+          "Coriscana, TX",
+          "Dallas, TX",
+        ],
+        time: {
+          hours: 4,
+          minutes: 30,
+        },
+      },
+    },
+    trips: {
+      pee: [],
+      post: [
+        {
+          stops: [
+            "Houston, TX",
+            "Navasota, TX",
+            "College Station, TX",
+            "Hearne, TX",
+            "Coriscana, TX",
+            "Dallas, TX",
+            "DFW Airport, TX",
+            "Fort Worth, TX",
+          ],
+          trips: 3,
+          extensions: [],
+        },
+      ],
+    },
+    fundingPerPassenger: 1,
+    newPassengers: 2,
+    infraCostPerPassenger: 1,
+  },
 };
 
 export default routeData;
