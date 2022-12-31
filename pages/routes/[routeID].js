@@ -1,22 +1,23 @@
-import routeData from "../../public/routes";
-import Dynamic from "next/dynamic";
-import Head from "next/head";
-import Header from "../../components/header";
-import styles from "../../styles/Home.module.css";
-import { useEffect, useState } from "react";
+import routeData from '../../public/routes';
+import Dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Header from '../../components/header';
+import styles from '../../styles/Home.module.css';
+import { useEffect, useState } from 'react';
+import ObjectToHTML from '../../components/objectToHTML';
 
 const figs = {
-  money: ["up to $25", "$25 to $50", "over $50"],
+  money: ['up to $25', '$25 to $50', 'over $50'],
   passengers: [
-    "up to 10,000",
-    "between 10,000 and 20,000",
-    "between 20,000 and 30,000",
-    "over 30,000",
+    'up to 10,000',
+    'between 10,000 and 20,000',
+    'between 20,000 and 30,000',
+    'over 30,000',
   ],
-  infrastructure: ["up to $250", "$250 to $500", "over $500"],
+  infrastructure: ['up to $250', '$250 to $500', 'over $500'],
 };
 
-const MapWithNoSSR = Dynamic(() => import("../../components/map"), {
+const MapWithNoSSR = Dynamic(() => import('../../components/map'), {
   ssr: false,
 });
 
@@ -47,7 +48,7 @@ const Route = (params) => {
   const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    fetch("../shapes.json")
+    fetch('../shapes.json')
       .then((response) => response.json())
       .then((mapData) => {
         const cleanedFeatures = mapData.features.filter((feature) => {
@@ -110,19 +111,19 @@ const Route = (params) => {
       <main className={styles.main}>
         <h2>{data.routeName}</h2>
         <p>
-          The {data.routeName} train is{" "}
-          {data.trips.pee.length > 0 ? "an existing" : "a planned"} route
-          running {data.mileage} miles from {data.stops.all.stations[0]} to{" "}
-          {data.stops.all.stations.slice(-1)}, taking{" "}
-          {data.stops.all.time.hours} hours and {data.stops.all.time.minutes}{" "}
-          minutes over tracks owned by {data.hosts.slice(0, -1).join(", ")}
-          {data.hosts.length > 2 ? "," : ""}
-          {data.hosts.length > 1 ? " and" : ""} {data.hosts.slice(-1)}, with the
-          primary section of the route running between{" "}
+          The {data.routeName} train is{' '}
+          {data.trips.pee.length > 0 ? 'an existing' : 'a planned'} route
+          running {data.mileage} miles from {data.stops.all.stations[0]} to{' '}
+          {data.stops.all.stations.slice(-1)}, taking{' '}
+          {data.stops.all.time.hours} hours and {data.stops.all.time.minutes}{' '}
+          minutes over tracks owned by {data.hosts.slice(0, -1).join(', ')}
+          {data.hosts.length > 2 ? ',' : ''}
+          {data.hosts.length > 1 ? ' and' : ''} {data.hosts.slice(-1)}, with the
+          primary section of the route running between{' '}
           {data.stops.key.stations[0]} and {data.stops.key.stations.slice(-1)},
-          taking {data.stops.key.time.hours} hours and{" "}
+          taking {data.stops.key.time.hours} hours and{' '}
           {data.stops.key.time.minutes} minutes to complete. Additionally, an
-          initial investment of{" "}
+          initial investment of{' '}
           {figs.infrastructure[data.infraCostPerPassenger]} per passenger and a
           subsidy of {figs.money[data.fundingPerPassenger]} per passenger is
           projected to lead to {figs.passengers[data.newPassengers]} regular
@@ -182,7 +183,7 @@ const Route = (params) => {
         {data.stops.branches && data.stops.branches.length == 1 ? (
           <>
             <p>
-              Additionally, a branch from {data.stops.branches[0][0]} to{" "}
+              Additionally, a branch from {data.stops.branches[0][0]} to{' '}
               {data.stops.branches[0].slice(-1)} exists for this route:
             </p>
             <ul>
@@ -215,11 +216,11 @@ const Route = (params) => {
                     return (
                       <li
                         key={`trips-pee-${trip.stops[0]}-${trip.stops.slice(
-                          -1
+                          -1,
                         )}`}
                       >
-                        From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
-                        {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
+                        From {trip.stops[0]} to {trip.stops.slice(-1)} and back{' '}
+                        {trip.trips} time{trip.trips > 1 ? 's' : ''} per day.
                         {trip.extensions.length > 0 ? (
                           <ul>
                             {trip.extensions.map((extension) => {
@@ -231,8 +232,8 @@ const Route = (params) => {
                                   }-${extension.stops.slice(-1)}`}
                                 >
                                   {extension.trips} train
-                                  {extension.trips.length > 1 ? "s" : ""}{" "}
-                                  extended to {extension.stops.slice(-1)} from{" "}
+                                  {extension.trips.length > 1 ? 's' : ''}{' '}
+                                  extended to {extension.stops.slice(-1)} from{' '}
                                   {extension.stops[0]}.
                                 </li>
                               );
@@ -248,11 +249,11 @@ const Route = (params) => {
               <>
                 <p>
                   {/* only one segment */}
-                  Before the pandemic, this route ran from{" "}
-                  {data.trips.pee[0].stops[0]} to{" "}
-                  {data.trips.pee[0].stops.slice(-1)} and back{" "}
+                  Before the pandemic, this route ran from{' '}
+                  {data.trips.pee[0].stops[0]} to{' '}
+                  {data.trips.pee[0].stops.slice(-1)} and back{' '}
                   {data.trips.pee[0].trips} time
-                  {data.trips.pee[0].trips > 1 ? "s" : ""} per day.{" "}
+                  {data.trips.pee[0].trips > 1 ? 's' : ''} per day.{' '}
                   {data.trips.pee[0].extensions.length > 0 ? (
                     <>
                       {data.trips.pee[0].extensions.length > 1 ? (
@@ -262,10 +263,10 @@ const Route = (params) => {
                         </>
                       ) : (
                         <>
-                          Additionally, the route had an extension from{" "}
-                          {data.trips.pee[0].extensions[0].stops[0]} to{" "}
-                          {data.trips.pee[0].extensions[0].stops.slice(-1)}{" "}
-                          which ran {data.trips.pee[0].extensions[0].trips}{" "}
+                          Additionally, the route had an extension from{' '}
+                          {data.trips.pee[0].extensions[0].stops[0]} to{' '}
+                          {data.trips.pee[0].extensions[0].stops.slice(-1)}{' '}
+                          which ran {data.trips.pee[0].extensions[0].trips}{' '}
                           times per day.
                         </>
                       )}
@@ -284,8 +285,8 @@ const Route = (params) => {
                             }-${extension.stops.slice(-1)}`}
                           >
                             {extension.trips} train
-                            {extension.trips > 1 ? "s" : ""} extended to{" "}
-                            {extension.stops.slice(-1)} from{" "}
+                            {extension.trips > 1 ? 's' : ''} extended to{' '}
+                            {extension.stops.slice(-1)} from{' '}
                             {extension.stops[0]}.
                           </li>
                         );
@@ -315,11 +316,11 @@ const Route = (params) => {
                     return (
                       <li
                         key={`trip-post-${trip.stops[0]}-${trip.stops.slice(
-                          -1
+                          -1,
                         )}`}
                       >
-                        From {trip.stops[0]} to {trip.stops.slice(-1)} and back{" "}
-                        {trip.trips} time{trip.trips > 1 ? "s" : ""} per day.
+                        From {trip.stops[0]} to {trip.stops.slice(-1)} and back{' '}
+                        {trip.trips} time{trip.trips > 1 ? 's' : ''} per day.
                         {trip.extensions.length > 0 ? (
                           <ul>
                             {trip.extensions.map((extension) => {
@@ -331,8 +332,8 @@ const Route = (params) => {
                                   }-${extension.stops.slice(-1)}`}
                                 >
                                   {extension.trips} train
-                                  {extension.trips.length > 1 ? "s" : ""} will
-                                  extend to {extension.stops.slice(-1)} from{" "}
+                                  {extension.trips.length > 1 ? 's' : ''} will
+                                  extend to {extension.stops.slice(-1)} from{' '}
                                   {extension.stops[0]}.
                                 </li>
                               );
@@ -348,11 +349,11 @@ const Route = (params) => {
               <>
                 <p>
                   {/* only one segment */}
-                  Amtrak is proposing this route run from{" "}
-                  {data.trips.post[0].stops[0]} to{" "}
-                  {data.trips.post[0].stops.slice(-1)} and back{" "}
+                  Amtrak is proposing this route run from{' '}
+                  {data.trips.post[0].stops[0]} to{' '}
+                  {data.trips.post[0].stops.slice(-1)} and back{' '}
                   {data.trips.post[0].trips} time
-                  {data.trips.post[0].trips > 1 ? "s" : ""} per day.{" "}
+                  {data.trips.post[0].trips > 1 ? 's' : ''} per day.{' '}
                   {data.trips.post[0].extensions.length > 0 ? (
                     <>
                       {data.trips.post[0].extensions.length > 1 ? (
@@ -362,8 +363,8 @@ const Route = (params) => {
                         </>
                       ) : (
                         <>
-                          Additionally, Amtrak is proposing an extension from{" "}
-                          {data.trips.post[0].extensions[0].stops[0]} to{" "}
+                          Additionally, Amtrak is proposing an extension from{' '}
+                          {data.trips.post[0].extensions[0].stops[0]} to{' '}
                           {data.trips.post[0].extensions[0].stops.slice(-1)} to
                           run {data.trips.post[0].extensions[0].trips} times per
                           day.
@@ -384,7 +385,7 @@ const Route = (params) => {
                             }-${extension.stops.slice(-1)}`}
                           >
                             {extension.trips} train
-                            {extension.trips > 1 ? "s" : ""} to extend from{" "}
+                            {extension.trips > 1 ? 's' : ''} to extend from{' '}
                             {extension.stops[0]} to {extension.stops.slice(-1)}.
                           </li>
                         );
@@ -404,18 +405,18 @@ const Route = (params) => {
         <ul>
           <li>Route Length: {data.mileage} mi.</li>
           <li>
-            Host Railroad{data.hosts.length > 1 ? "s" : ""}:{" "}
-            {data.hosts.join(", ")}
+            Host Railroad{data.hosts.length > 1 ? 's' : ''}:{' '}
+            {data.hosts.join(', ')}
           </li>
-          <li>All Stops: {data.stops.all.stations.join(", ")}</li>
+          <li>All Stops: {data.stops.all.stations.join(', ')}</li>
           <li>
             Full Runtime: {data.stops.all.time.hours}:
-            {data.stops.all.time.minutes.toString().padStart(2, "0")}
+            {data.stops.all.time.minutes.toString().padStart(2, '0')}
           </li>
-          <li>Key Stops: {data.stops.key.stations.join(", ")}</li>
+          <li>Key Stops: {data.stops.key.stations.join(', ')}</li>
           <li>
             Key Runtime: {data.stops.key.time.hours}:
-            {data.stops.key.time.minutes.toString().padStart(2, "0")}
+            {data.stops.key.time.minutes.toString().padStart(2, '0')}
           </li>
         </ul>
 
@@ -423,6 +424,7 @@ const Route = (params) => {
         <div>
           <details>
             <summary>Expand to see Raw Data:</summary>
+            <ObjectToHTML input={data} />
             {JSON.stringify(data, null, 2)}
           </details>
         </div>

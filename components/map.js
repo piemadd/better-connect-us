@@ -55,7 +55,7 @@ export default function Map(data) {
       scrollWheelZoom={true}
     >
       <TileLayer
-        url={`https://map.amtrakle.com/{z}/{x}/{y}`}
+        url={`https://tile.amtrakle.com/{z}/{x}/{y}.png`}
         attribution='<a href="https://www.openstreetmap.org/copyright">&copy; OpenStreetMap</a> Contributors | &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
       />
       {features.length > 0
